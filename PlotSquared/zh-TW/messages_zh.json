@@ -37,7 +37,7 @@
   "cluster.cluster_list_element_invited": "<prefix><gray> - </gray><blue><cluster></blue>\n",
   "cluster.cluster_intersection": "<prefix><gray>請求的片區與以下地區重疊:<cluster></gray>",
   "cluster.cluster_outside": "<prefix><gray>擬訂的區域位於地皮片區範圍之外:<area></gray>",
-  "cluster.cluster_created": "<prefix><dark_aqua>成功創建了集群 </dark_aqua><gold><name></gold><dark_aqua></dark_aqua>",
+  "cluster.cluster_created": "s<prefix><dark_aqua>成功創建了集群 </dark_aqua><gold><name></gold><dark_aqua></dark_aqua>",
   "cluster.cluster_deleted": "<prefix><dark_aqua>成功刪除集群 </dark_aqua><gold><cluster></gold><dark_aqua></dark_aqua>",
   "cluster.cluster_resized": "<prefix><dark_aqua>成功重新丈量了地皮集群的大小</dark_aqua>",
   "cluster.cluster_added_user": "<prefix><dark_aqua>成功將用戶添加到地皮集群</dark_aqua>",

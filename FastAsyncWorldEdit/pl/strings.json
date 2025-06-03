@@ -197,7 +197,7 @@
   "fawe.tips.tip.replace.regex.5": "Tip: Replace using operators: //replace true *[level-=1]",
   "fawe.tips.tip.replace.id": "Tip: Replace only the block id: //replace woodenstair #id[cobblestair]",
   "fawe.tips.tip.replace.light": "Tip: Remove light sources with //replace #brightness[1][15] 0",
-  "fawe.tips.tip.tab.complete": "Tip: The replace command supports tab completion",
+  "fawe.tips.tip.tab.complete": "Wskazówka: Komenda replace wspiera autouzupełnianie",
   "fawe.tips.tip.flip": "Wskazówka: Odbij za pomocą //flip",
   "fawe.tips.tip.deform": "Tip: Reshape with //deform",
   "fawe.tips.tip.transform": "Tip: Set a transform with //gtransform",

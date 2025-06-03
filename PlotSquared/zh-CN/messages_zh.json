@@ -460,7 +460,7 @@
   "backups.backup_list_entry": "<prefix><dark_gray>- </dark_gray><gold>#<number> </gold><gray><value></gray>.",
   "backups.backup_list_failed": "<prefix><red>备份列表获取失败： </red><gray><reason></gray>",
   "backups.backup_automatic_started": "<prefix><gold>开始备份地皮 <plot>...</gold>",
-  "backups.backup_automatic_finished": "<prefix><gold>自动备份过程已成功完成！</gold>",
+  "backups.backup_automatic_finished": "<prefix><gold>自动备份过程已成功完成!</gold>",
   "backups.backup_automatic_failure": "<prefix><red>自动备份过程失败。您的待处理操作已被取消。原因： </red><gray><reason></gray>",
   "preset.preset_cannot_afford": "<prefix><red>您无法支付该预设。</red>",
   "preset.preset_invalid": "<prefix><red>无法从该预设生成模式。</red>",

@@ -4,7 +4,7 @@
   "fawe.worldedit.history.find.element.more": " - 变更方块： {0}\n - 范围： {1} -> {2}\n - 附加值： {3}\n - 硬盘空间大小： {4}",
   "fawe.worldedit.history.find.hover": "{0} 个方块被更改，点击以查看更多信息",
   "fawe.worldedit.history.distr.summary_null": "找不到输入的编辑摘要。",
-  "fawe.info.lighting.propagate.selection": "灯光已经在 {0} 区块中传播。",
+  "fawe.info.lighting.propagate.selection": "光照已经在 {0} 区块中传播。",
   "fawe.info.updated.lighting.selection": "更新了 {0} 个区块的光源。(传递数据包可能将花费数秒钟)",
   "fawe.info.set.region": "将选择范围设置为当前允许的区域",
   "fawe.info.worldedit.toggle.tips.on": "关闭 FAWE 的温馨提示。",

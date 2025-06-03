@@ -161,7 +161,7 @@
   "setup.road_width": "<gold>Šířka silnice</gold>",
   "setup.road_height": "<gold>Výška silnice</gold>",
   "setup.road_block": "<gold>Silniční blok</gold>",
-  "setup.wall_filling_block": "<gold>Wall filling block</gold><gray> (Block(s) been put under the plot border down to min gen height + 1)</gray>",
+  "setup.wall_filling_block": "",
   "setup.wall_height": "<gold>Výška stěny</gold>",
   "setup.min_gen_height": "<gold>Minimum height from which to generate (for 1.18+ can be negative).</gold>",
   "setup.bedrock_boolean": "<gold>Zda má být základní vrstva bedrocku pod plochou vygenerována nebo ne</gold>",

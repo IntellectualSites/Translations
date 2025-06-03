@@ -2,7 +2,7 @@
   "confirm.expired_confirm": "<prefix><red>만료된 작업입니다. 명령어를 다시 입력해 주세요.</red>",
   "confirm.failed_confirm": "<prefix><red>대기중인 요청이 없습니다!</red>",
   "confirm.requires_confirm": "<prefix><gray>Are you sure you wish to execute: </gray><gold><command></gold><gray>?</gray>\n<red>This cannot be undone! If you are sure: </red><gray><value></gray>\n<gray>The request times out in <red><timeout></red><gray> seconds. ",
-  "move.move_success": "<prefix><dark_aqua>Successfully moved the plot</dark_aqua> <gold><origin></gold><dark_aqua> -> </dark_aqua><gold><target></gold>",
+  "move.move_success": "<origin><prefix><dark_aqua>Successfully moved the plot</dark_aqua> <gold><origin></gold><dark_aqua> -> </dark_aqua><gold><target></gold>",
   "move.move_merged": "<prefix><red>병합된 플롯은 이동할 수 없습니다. 이동을 수행하기 전에 플롯을 병합 해제하십시오.</red>",
   "move.copy_success": "<prefix><dark_aqua>플롯을 성공적으로 복사했습니다.</dark_aqua> <gold><origin></gold><dark_aqua> -> </dark_aqua><gold><target></gold>",
   "move.requires_unowned": "<prefix><red>지정한 위치가 이미 사용중입니다.</red>",

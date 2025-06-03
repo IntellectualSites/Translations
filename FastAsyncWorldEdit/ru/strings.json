@@ -14,7 +14,7 @@
   "fawe.info.worldedit.oom.admin": "Возможные варианты:\n - //fast\n - Делайте более маленькие изменения\n - Выделите больше памяти\n - Отключите `max-memory-percent`",
   "fawe.info.temporarily-not-working": "Временно не работает",
   "fawe.info.light-blocks": "Блоки света более надежны, чем источники света, пожалуйста, используйте блоки. Эта команда устарела и будет удалена в будущей версии.",
-  "fawe.info.update-available.build": "An update for FastAsyncWorldEdit is available. You are {0} build(s) behind.\nYou are running build {1}, the latest build is {2}.\nUpdate at {3}",
+  "fawe.info.update-available.build": "",
   "fawe.info.update-available.release": "A new release for FastAsyncWorldEdit is available: {0}. You are currently on {1}. Download from {2}, {3} or {4}.",
   "fawe.web.generating.link": "Загружаем {0}, пожалуйста подождите...",
   "fawe.web.generating.link.failed": "Не удалось сгенерировать ссылку для скачивания!",
