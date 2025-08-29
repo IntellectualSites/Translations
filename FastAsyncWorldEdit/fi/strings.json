@@ -468,7 +468,7 @@
   "worldedit.remove.explain-all": "Use -1 to remove all entities in loaded chunks",
   "worldedit.calc.invalid": "'{0}' could not be parsed as a valid expression",
   "worldedit.calc.invalid.with-error": "'{0}' could not be parsed as a valid expression: '{1}'",
-  "worldedit.paste.pasted": "Liitepöytä liitettiin sijaintiin {0}",
+  "worldedit.paste.pasted": "The clipboard has been pasted at {0}",
   "worldedit.paste.selected": "Selected clipboard paste region.",
   "worldedit.rotate.no-interpolation": "Note: Interpolation is not yet supported, so angles that are multiples of 90 is recommended.",
   "worldedit.rotate.rotated": "The clipboard copy has been rotated.",

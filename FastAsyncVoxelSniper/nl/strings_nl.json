@@ -1,7 +1,7 @@
 {
     "prefix": "&8(&4&lFAVS&8)&7 {0}",
-    "favs.info.update.update-available": "&6Een update voor FastAsyncVoxelSniper is beschikbaar\nJe bent momenteel op versie &b{0}&6, de laaste versie is &b{1}\n&6Update hier {2}",
-    "favs.info.update.check-failed": "&cKon niet controleren op FastAsyncVoxelSniper updates.",
+    "favs.info.update.update-available": "&6An update for FastAsyncVoxelSniper is available.\nYou are running version &b{0}&6, the latest version is &b{1}\n&6Update at {2}",
+    "favs.info.update.check-failed": "&cCould not check for FastAsyncVoxelSniper updates.",
     "voxelsniper.sniper.enabled": "&2enabled",
     "voxelsniper.sniper.disabled": "&4disabled",
     "voxelsniper.sniper.big": "&2big",
