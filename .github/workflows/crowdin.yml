@@ -1,0 +1,112 @@
+name: Download Crowdin Translations
+
+on:
+  workflow_dispatch:
+  schedule:
+    # random minute (7) so we don't schedule on common hours
+    - cron: 7 2 * * 6
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      cancel-in-progress: true
+      group: root
+    strategy:
+      fail-fast: true
+      max-parallel: 1
+      matrix:
+        # Each project consists of:
+        # - a name (for matrix job title and commit message formatting)
+        # - the ID of the Crowdin project (can be viewed in the Crowdin Console)
+        # - the Crowdin branch (NOT Git branch; if applicable; can be viewed in the Crowdin Console)
+        # - the source file path (can be viewed in the Crowdin Console)
+        # - the destination path (somehow required by the CLI for downloading the source file, seems to be equal to the source file for the current projects)
+        # - the translation file format (translated file; can be viewed on the Settings of the source file in Crowdin Console)
+        # - a storage block (defines which files/folders [selector] should be made available at a specific location [target])
+        project:
+          - name: 'FastAsyncWorldEdit'
+            id: 8
+            branch: 'master'
+            source: 'worldedit-core/src/main/resources/lang/strings.json'
+            destination: 'worldedit-core/src/main/resources/lang/strings.json'
+            translation: 'worldedit-core/src/main/resources/%two_letters_code%/%original_file_name%'
+            storage:
+              selector: 'worldedit-core/src/main/resources/*'
+              target: 'FastAsyncWorldEdit'
+          - name: 'PlotSquared'
+            id: 10
+            branch: 'master'
+            source: 'Core/src/main/resources/lang/messages_en.json'
+            destination: 'Core/src/main/resources/lang/messages_en.json'
+            translation: 'Core/src/main/resources/lang/messages_%two_letters_code%.json'
+            storage:
+              selector: 'Core/src/main/resources/lang/*'
+              target: 'PlotSquared'
+          - name: 'FastAsyncVoxelSniper'
+            id: 39
+            branch: ''
+            source: 'strings.json' # Different to crowdin.yml
+            destination: 'strings.json'
+            translation: 'src/main/resources/lang/%file_name%_%two_letters_code%.json'
+            storage:
+              selector: 'src/main/resources/lang/*'
+              target: 'FastAsyncVoxelSniper'
+        quality:
+          - branch: 'main'
+            export_only_approved: true
+          - branch: 'not-reviewed'
+            export_only_approved: false
+    name: 'Download ${{ matrix.project.name }} (approved=${{ matrix.quality.export_only_approved }})'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ matrix.quality.branch }}
+          fetch-depth: 0
+      - name: Download translations
+        uses: crowdin/github-action@v3
+        with:
+          skip_ref_checkout: true # We already do that via the checkout action and matrix value
+          upload_sources: false
+          upload_translations: false
+          # source file is required, so that downloaded translations can be matched against it.
+          # this is explicitly required for FAWE, as the Crowdin project has a few (unused) source files.
+          download_sources: true
+          download_translations: true
+          create_pull_request: false
+          push_translations: false
+          push_sources: false
+          export_only_approved: ${{ matrix.quality.export_only_approved }}
+          localization_branch_name: ${{ matrix.quality.branch }} # GH
+          crowdin_branch_name: ${{ matrix.project.branch }} # Crowdin
+          source: ${{ matrix.project.source }}
+          translation: ${{ matrix.project.translation }}
+          commit_message: 'New Crowdin translations for ${{ matrix.project.name }}'
+          # Weird CLI behavior without this
+          command_args: '--dest ${{ matrix.project.destination }}'
+        env:
+          CROWDIN_BASE_URL: 'https://intellectualsites.api.crowdin.com/'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+          CROWDIN_PROJECT_ID: ${{ matrix.project.id }}
+      - name: Move translations
+        # First, deletes the directory where all translations will be moved to (if it exists).
+        # That way we have a clean slate and can get rid of potentially deleted translations / languages.
+        # Then we (re-)create that folder.
+        # We remove the source/destination (= English) file, as this is always shipped with the plugin either way (and is visual clutter).
+        # Finally, move all downloaded translations into the previously creates target folder.
+        run: |
+          [ -d "${{ matrix.project.storage.target }}" ] && sudo rm -r ${{ matrix.project.storage.target }}
+          mkdir -p ${{ matrix.project.storage.target }}
+          sudo rm ${{ matrix.project.destination }}
+          sudo mv ${{ matrix.project.storage.selector }} ${{ matrix.project.storage.target }}
+      - name: Commit & Push
+        run: |
+          git config user.name "intellectualsites-bot"
+          git config user.email "95638266+intellectualsites-bot@users.noreply.github.com"
+          git add ${{ matrix.project.storage.target }}/\*
+          git diff-index --quiet HEAD || git commit -m "New Crowdin translations for ${{ matrix.project.name }}"
+          git push
